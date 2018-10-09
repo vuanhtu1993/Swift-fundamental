@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITextFieldDelegate,UIImagePickerControl
     // MARK: Properties
     // Access value from interface object
     // Modified the interface
+    // Reference Builder -> ViewController (thực chất đã được khởi tạo)
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var mealNameLabel: UILabel!
     @IBOutlet weak var buttonImageView: UIButton!
@@ -30,24 +31,19 @@ class ViewController: UIViewController, UITextFieldDelegate,UIImagePickerControl
     @IBAction func setDefaultLabel(_ sender: UIButton) {
         mealNameLabel.text = "Default text"
     }
-//    @IBAction func selectedPhotoFromLibrary(_ sender: UITapGestureRecognizer) {
-//        nameTextField.resignFirstResponder()
-//        let imagePickerController = UIImagePickerController()
-//        imagePickerController.sourceType = .photoLibrary
-//        // Make sure ViewController is notified when the user picks an image.
-//        imagePickerController.delegate = self
-//        present(imagePickerController, animated: true, completion: nil)
-//    }
+
     @IBAction func imageTouched(_ sender: UITapGestureRecognizer) {
         print("Click to image and trigger  ")
     }
     
     @IBAction func selectedPhoto(_ sender: UIButton) {
         nameTextField.resignFirstResponder()
+        // Khởi tạo image Picker Controller
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = .photoLibrary
         // Make sure ViewController is notified when the user picks an image.
         imagePickerController.delegate = self
+        // present Image Picker 
         present(imagePickerController, animated: true, completion: nil)
     }
     
@@ -62,6 +58,8 @@ class ViewController: UIViewController, UITextFieldDelegate,UIImagePickerControl
     }
     
     //MARK: UIImagePickerControllerDelegate
+    // Các trigger được trả về và được lắng nghe tương ứng với các phương thức ở dưới
+    // Nếu ko có các phuong thức này thì picture Picker vẫn hoạt động nhưng View Controller ko thực thi
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         // Dismiss the picker if the user canceled.
         dismiss(animated: true, completion: nil)
