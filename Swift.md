@@ -17,12 +17,14 @@
 DispatchQueue.main.async {
   ...
 }
-non-escape: the close will be execute and return immediately, not being store, this is the trivia case. Usually meet when use a function in a collection:
-
+```
+> non-escape: the close will be execute and return immediately, not being store, this is the trivia case
+> Usually meet when use a function in a collection:
+```swift
 [1,2,3].forEach { number in
   ...
 }
-If a closure is a property, It's auto escaping
+// If a closure is a property, It's auto escaping
 
 // declare a callback being call a user is picked
 var onUserPick: ((_ user: User) -> Void)?
