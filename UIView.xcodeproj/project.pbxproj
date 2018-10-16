@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4143294E2175A5F600F5617A /* AutoLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4143294D2175A5F600F5617A /* AutoLayoutViewController.swift */; };
+		414329502175A60A00F5617A /* AutoLayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4143294F2175A60A00F5617A /* AutoLayout.storyboard */; };
+		414329542175D71100F5617A /* TipCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414329532175D71100F5617A /* TipCalculatorViewController.swift */; };
+		414329562175D72500F5617A /* TipCalculator.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 414329552175D72500F5617A /* TipCalculator.storyboard */; };
 		4160CF3B216930D5006415D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160CF3A216930D5006415D7 /* AppDelegate.swift */; };
 		4160CF3D216930D5006415D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160CF3C216930D5006415D7 /* ViewController.swift */; };
 		4160CF40216930D5006415D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4160CF3E216930D5006415D7 /* Main.storyboard */; };
@@ -14,6 +18,7 @@
 		4160CF45216930D6006415D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4160CF43216930D6006415D7 /* LaunchScreen.storyboard */; };
 		4160CF50216930D6006415D7 /* UIViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160CF4F216930D6006415D7 /* UIViewTests.swift */; };
 		4160CF5B216930D6006415D7 /* UIViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160CF5A216930D6006415D7 /* UIViewUITests.swift */; };
+		41816D3C216C64040006A4DC /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41816D3B216C64040006A4DC /* RatingControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4143294D2175A5F600F5617A /* AutoLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutViewController.swift; sourceTree = "<group>"; };
+		4143294F2175A60A00F5617A /* AutoLayout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AutoLayout.storyboard; sourceTree = "<group>"; };
+		414329532175D71100F5617A /* TipCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCalculatorViewController.swift; sourceTree = "<group>"; };
+		414329552175D72500F5617A /* TipCalculator.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TipCalculator.storyboard; sourceTree = "<group>"; };
 		4160CF37216930D5006415D7 /* UIView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4160CF3A216930D5006415D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4160CF3C216930D5006415D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +56,7 @@
 		4160CF56216930D6006415D7 /* UIViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4160CF5A216930D6006415D7 /* UIViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewUITests.swift; sourceTree = "<group>"; };
 		4160CF5C216930D6006415D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41816D3B216C64040006A4DC /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +84,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4143294C2175A5C200F5617A /* AutoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				4143294D2175A5F600F5617A /* AutoLayoutViewController.swift */,
+				4143294F2175A60A00F5617A /* AutoLayout.storyboard */,
+			);
+			path = AutoLayout;
+			sourceTree = "<group>";
+		};
+		414329522175D6E900F5617A /* TipCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				414329532175D71100F5617A /* TipCalculatorViewController.swift */,
+				414329552175D72500F5617A /* TipCalculator.storyboard */,
+			);
+			path = TipCalculator;
+			sourceTree = "<group>";
+		};
 		4160CF2E216930D4006415D7 = {
 			isa = PBXGroup;
 			children = (
@@ -97,9 +125,12 @@
 		4160CF39216930D5006415D7 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				414329522175D6E900F5617A /* TipCalculator */,
+				4143294C2175A5C200F5617A /* AutoLayout */,
 				4160CF3A216930D5006415D7 /* AppDelegate.swift */,
 				4160CF3C216930D5006415D7 /* ViewController.swift */,
 				4160CF3E216930D5006415D7 /* Main.storyboard */,
+				41816D3B216C64040006A4DC /* RatingControl.swift */,
 				4160CF41216930D6006415D7 /* Assets.xcassets */,
 				4160CF43216930D6006415D7 /* LaunchScreen.storyboard */,
 				4160CF46216930D6006415D7 /* Info.plist */,
@@ -232,6 +263,8 @@
 				4160CF45216930D6006415D7 /* LaunchScreen.storyboard in Resources */,
 				4160CF42216930D6006415D7 /* Assets.xcassets in Resources */,
 				4160CF40216930D5006415D7 /* Main.storyboard in Resources */,
+				414329562175D72500F5617A /* TipCalculator.storyboard in Resources */,
+				414329502175A60A00F5617A /* AutoLayout.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +289,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				414329542175D71100F5617A /* TipCalculatorViewController.swift in Sources */,
 				4160CF3D216930D5006415D7 /* ViewController.swift in Sources */,
+				41816D3C216C64040006A4DC /* RatingControl.swift in Sources */,
 				4160CF3B216930D5006415D7 /* AppDelegate.swift in Sources */,
+				4143294E2175A5F600F5617A /* AutoLayoutViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
