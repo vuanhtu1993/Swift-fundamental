@@ -1,3 +1,32 @@
+## Learning IOS road map
+* How to navigate Xcode & Interface Builder
+* Building to Devices
+* Uploading an App to the App Store
+* UIKit (ok)
+* Auto Layout 
+* Understanding of Model-View-Controller & OOP
+* Debugging Apps in Xcode
+* Using the Instruments tool
+* Using / Combining XIB’s, UIStoryboard, Segues and various presentation/transition techniques
+* Persisting data with Core Data (Realm is a good option too, but not stock iOS)
+* All about UITableView
+* All about UICollectionView
+* Parsing JSON into usable data in apps
+* NotificationCenter & Notifications
+* Delegates & Protocols
+* Interacting with RESTful APIs
+* Git or another method of version control
+* Understanding of DRY Principle
+* Multi-Threading
+* Unit Testing with XCTest
+* Using AutoLayout Size Classes to build great experiences for both iPhone and iPad
+ 
+Type Casting:
+    - Là cách để kiêmr tra kiểu của instance 
+    - Type casting in Swift is implemented with the is and as operators
+    - You can also use type casting to check whether a type conforms to a protocol 
+
+
 ### What is closure?
 > Closures are self-contained blocks of functinality that can be PASSED around and USED in your code
 
