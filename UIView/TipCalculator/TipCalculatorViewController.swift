@@ -10,16 +10,21 @@ import UIKit
 
 class TipCalculatorViewController: UIViewController {
 
-    // MARK: IBOutLet
-    @IBOutlet weak var amountBeforeTips: UITextField!
+    // MARK: IBOuttet
+    @IBOutlet weak var amountBeforeTipsTextField: UITextField!
     @IBOutlet weak var percentTips: UILabel!
     @IBOutlet weak var percentTipSlider: UISlider!
     @IBOutlet weak var resultLabel: UILabel!
+    
+    // MARK: Properties
+    var tipCalc = TipCalc(amountBeforeTax: 20.0, tipPercentage: 0.1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        amountBeforeTipsTextField.text = String(format: "%0.2f", arguments: [tipCalc.amountBeforeTax])
+        percentTips.text = String(format: "Tip %d%%", arguments: [Int(tipCalc.tipPercentage * 100)])
     }
     
     static func createModule() -> TipCalculatorViewController {
@@ -31,6 +36,11 @@ class TipCalculatorViewController: UIViewController {
         return UIStoryboard(name:"TipCalculator",bundle: Bundle.main)
     }
     
+    func monitorPercentSlider() {
+        tipCalc.tipPercentage = Float(percentTipSlider.value)
+        tipCalc.amountBeforeTax = ((amountBeforeTipsTextField.text)! as NSString).floatValue
+        tipCalc.calculateTip()
+    }
 
     /*
     // MARK: - Navigation

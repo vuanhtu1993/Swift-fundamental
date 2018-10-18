@@ -32,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tip: %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FfX-cF-028">
-                                <rect key="frame" x="25" y="221" width="47" height="21"/>
+                                <rect key="frame" x="25" y="221" width="84" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -72,7 +72,7 @@
                                 <rect key="frame" x="115" y="344" width="246" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="nRe-Xe-SuD">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.12" minValue="0.10000000000000001" maxValue="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="nRe-Xe-SuD">
                                 <rect key="frame" x="115" y="217" width="246" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </slider>
@@ -81,7 +81,7 @@
                         <viewLayoutGuide key="safeArea" id="M2C-0y-Sdf"/>
                     </view>
                     <connections>
-                        <outlet property="amountBeforeTips" destination="Fzq-xq-S8B" id="HCU-U9-kO4"/>
+                        <outlet property="amountBeforeTipsTextField" destination="Fzq-xq-S8B" id="lgZ-cM-Mnx"/>
                         <outlet property="percentTipSlider" destination="nRe-Xe-SuD" id="H7N-gm-IQJ"/>
                         <outlet property="percentTips" destination="FfX-cF-028" id="3Qi-8S-h2Q"/>
                         <outlet property="resultLabel" destination="IYJ-2B-33e" id="Jbg-eA-fgx"/>
@@ -89,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jj9-Nf-pWZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-58" y="90"/>
+            <point key="canvasLocation" x="-58.399999999999999" y="89.505247376311857"/>
         </scene>
     </scenes>
 </document>
