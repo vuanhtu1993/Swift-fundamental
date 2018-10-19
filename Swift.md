@@ -74,6 +74,27 @@ dynamicFunction(a: 10, b: 30, callback: multiply)
 
 dynamicFunction(a: 1, b: 2, callback: {(a, b) in return a * b})
 ```
+2. Truyến dữ liệu giữa thằng class cha với class con
+```swift
+class Cha {
+    var con = Con()
+    func khoitao() {
+        con.closure = { data in print(data) }
+    }
+}
+
+class Con {
+    var closure: (String) -> () = {_ in}
+    var data: String = "Du lieu"
+    func triggerClosure() {
+        closure(data)
+    }
+}
+
+let cha = Cha()
+cha.khoitao()
+cha.con.triggerClosure()
+```
 
 > Closures are self-contained blocks of functinality that can be PASSED around and USED in your code
 
