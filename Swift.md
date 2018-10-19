@@ -28,6 +28,53 @@ Type Casting:
 
 
 ### What is closure?
+>Closure expressions: là closures không có tên được viết dưới dạng giản lược syntax và có thể “capture” các giá trị từ các bối cảnh xung quanh
+```swift
+// Khai bao closure
+var add: (Int, Int) -> Int = {_,_ in return 0}
+
+// Thuc hien gan gia tri vao bien
+add = {(a: Int, b: Int) -> Int in
+    a + b
+}
+// Goi ham
+print(add(1, 1))
+
+// Gan gia tri theo cach gắn gọn hơn vì khi khai báo closure đã dịnh nghĩa kiểu đầu vào, đầu ra
+add = { (a, b) in
+    a + b
+}
+// Goi ham
+add (1, 2)
+```
+#### Ứng dụng của closure
+1. Callback
+```swift
+// Khai bao mot phương thức chứa callback như sorted(by: )
+// Khai bao ham chua callback
+// Call back ở đây chỉ là phân dạng hàm (kiểu hàm như thế nào chứ ko có logic)
+func dynamicFunction(a: Int, b: Int, callback: (Int, Int) -> Int) -> Int {
+    return callback(a, b)
+}
+// Khai bao callback
+func add(a: Int, b: Int) -> Int {
+    return a + b
+}
+
+func multiply(a: Int, b: Int) -> Int {
+    return a * b
+}
+// Thuc thi ham
+dynamicFunction(a: 10, b: 30, callback: add)
+
+dynamicFunction(a: 10, b: 30, callback: multiply)
+
+// Ứng dụng closure vao callback
+// Không cần khai báo callback
+
+dynamicFunction(a: 1, b: 2, callback: {(a, b) in return a * b})
+```
+
 > Closures are self-contained blocks of functinality that can be PASSED around and USED in your code
 
 1. -> Closure is a 1st class Object
