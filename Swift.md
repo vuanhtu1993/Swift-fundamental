@@ -58,3 +58,31 @@ DispatchQueue.main.async {
 // declare a callback being call a user is picked
 var onUserPick: ((_ user: User) -> Void)?
 ```
+
+### Delegate in swift
+// Delegate
+``` swift
+protocol FirstVCDelegate {
+    func notify(data: String)
+}
+// Thằng uỷ quyền
+class FirstVC {
+    var delegate: FirstVCDelegate?
+}
+// Thằng được uỷ quyền
+class SecondVC: FirstVCDelegate {
+    func notify(data: String) {
+        print("SecondVC being notify \(data)")
+    }
+}
+```
+```swift
+// Khởi tạo
+let firstVC = FirstVC()
+let secondVC = SecondVC()
+// Uỷ quyền
+firstVC.delegate = secondVC
+
+// Thực hiện phương thức được uỷ quyền
+firstVC.delegate?.notify(data: "Happy woman day")
+```
