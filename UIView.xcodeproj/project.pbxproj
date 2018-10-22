@@ -26,6 +26,12 @@
 		417C53DE21788959001E0674 /* LifecycleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417C53DD21788959001E0674 /* LifecycleViewController.swift */; };
 		417C53E02178896B001E0674 /* Lifecycle.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 417C53DF2178896B001E0674 /* Lifecycle.storyboard */; };
 		417C53E22178937A001E0674 /* Screeen2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417C53E12178937A001E0674 /* Screeen2.swift */; };
+		417C5757217DAE800099078B /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417C5756217DAE800099078B /* DateViewController.swift */; };
+		417C5759217DAE8D0099078B /* DateView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 417C5758217DAE8D0099078B /* DateView.storyboard */; };
+		417C575B217DB0C30099078B /* DatePickerPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417C575A217DB0C30099078B /* DatePickerPopup.swift */; };
+		417C575E217DBB500099078B /* DatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 417C575D217DBB500099078B /* DatePicker.storyboard */; };
+		417C5770217DCCFD0099078B /* DatePickerNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 417C576F217DCCFD0099078B /* DatePickerNib.xib */; };
+		417C5772217DD1850099078B /* DataPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417C5771217DD1850099078B /* DataPickerView.swift */; };
 		41816D3C216C64040006A4DC /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41816D3B216C64040006A4DC /* RatingControl.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +78,12 @@
 		417C53DD21788959001E0674 /* LifecycleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifecycleViewController.swift; sourceTree = "<group>"; };
 		417C53DF2178896B001E0674 /* Lifecycle.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lifecycle.storyboard; sourceTree = "<group>"; };
 		417C53E12178937A001E0674 /* Screeen2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screeen2.swift; sourceTree = "<group>"; };
+		417C5756217DAE800099078B /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
+		417C5758217DAE8D0099078B /* DateView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DateView.storyboard; sourceTree = "<group>"; };
+		417C575A217DB0C30099078B /* DatePickerPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerPopup.swift; sourceTree = "<group>"; };
+		417C575D217DBB500099078B /* DatePicker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DatePicker.storyboard; sourceTree = "<group>"; };
+		417C576F217DCCFD0099078B /* DatePickerNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerNib.xib; sourceTree = "<group>"; };
+		417C5771217DD1850099078B /* DataPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPickerView.swift; sourceTree = "<group>"; };
 		41816D3B216C64040006A4DC /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,6 +165,8 @@
 		4160CF39216930D5006415D7 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				417C575C217DB0CE0099078B /* Common */,
+				417C5755217DAD390099078B /* ReusableCustom */,
 				417C53DC2178892D001E0674 /* Lifecycle */,
 				415EA3B621772FC6009868E7 /* TabletView */,
 				414329522175D6E900F5617A /* TipCalculator */,
@@ -202,6 +216,34 @@
 				417C53E12178937A001E0674 /* Screeen2.swift */,
 			);
 			path = Lifecycle;
+			sourceTree = "<group>";
+		};
+		417C5755217DAD390099078B /* ReusableCustom */ = {
+			isa = PBXGroup;
+			children = (
+				417C5756217DAE800099078B /* DateViewController.swift */,
+				417C5758217DAE8D0099078B /* DateView.storyboard */,
+			);
+			path = ReusableCustom;
+			sourceTree = "<group>";
+		};
+		417C575C217DB0CE0099078B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				417C575F217DBB660099078B /* DataPicker */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		417C575F217DBB660099078B /* DataPicker */ = {
+			isa = PBXGroup;
+			children = (
+				417C575D217DBB500099078B /* DatePicker.storyboard */,
+				417C575A217DB0C30099078B /* DatePickerPopup.swift */,
+				417C576F217DCCFD0099078B /* DatePickerNib.xib */,
+				417C5771217DD1850099078B /* DataPickerView.swift */,
+			);
+			path = DataPicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,8 +353,11 @@
 				415EA3BA2177304C009868E7 /* TableView.storyboard in Resources */,
 				4160CF45216930D6006415D7 /* LaunchScreen.storyboard in Resources */,
 				4160CF42216930D6006415D7 /* Assets.xcassets in Resources */,
+				417C5759217DAE8D0099078B /* DateView.storyboard in Resources */,
 				4160CF40216930D5006415D7 /* Main.storyboard in Resources */,
+				417C5770217DCCFD0099078B /* DatePickerNib.xib in Resources */,
 				414329562175D72500F5617A /* TipCalculator.storyboard in Resources */,
+				417C575E217DBB500099078B /* DatePicker.storyboard in Resources */,
 				417C53E02178896B001E0674 /* Lifecycle.storyboard in Resources */,
 				414329502175A60A00F5617A /* AutoLayout.storyboard in Resources */,
 			);
@@ -343,10 +388,13 @@
 				414329542175D71100F5617A /* TipCalculatorViewController.swift in Sources */,
 				417C53D921783074001E0674 /* TableViewCell.swift in Sources */,
 				4160CF3D216930D5006415D7 /* ViewController.swift in Sources */,
+				417C5757217DAE800099078B /* DateViewController.swift in Sources */,
 				417C53E22178937A001E0674 /* Screeen2.swift in Sources */,
 				415EA3B82177300F009868E7 /* TableViewController.swift in Sources */,
 				41816D3C216C64040006A4DC /* RatingControl.swift in Sources */,
+				417C575B217DB0C30099078B /* DatePickerPopup.swift in Sources */,
 				4160CF3B216930D5006415D7 /* AppDelegate.swift in Sources */,
+				417C5772217DD1850099078B /* DataPickerView.swift in Sources */,
 				414329582175E53700F5617A /* TipCalcModule.swift in Sources */,
 				4143294E2175A5F600F5617A /* AutoLayoutViewController.swift in Sources */,
 				417C53DE21788959001E0674 /* LifecycleViewController.swift in Sources */,
