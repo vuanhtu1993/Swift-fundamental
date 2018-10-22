@@ -22,6 +22,10 @@
 		4160CF50216930D6006415D7 /* UIViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160CF4F216930D6006415D7 /* UIViewTests.swift */; };
 		4160CF5B216930D6006415D7 /* UIViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160CF5A216930D6006415D7 /* UIViewUITests.swift */; };
 		417C53D921783074001E0674 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417C53D821783074001E0674 /* TableViewCell.swift */; };
+		417C53DB21784029001E0674 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417C53DA21784029001E0674 /* Model.swift */; };
+		417C53DE21788959001E0674 /* LifecycleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417C53DD21788959001E0674 /* LifecycleViewController.swift */; };
+		417C53E02178896B001E0674 /* Lifecycle.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 417C53DF2178896B001E0674 /* Lifecycle.storyboard */; };
+		417C53E22178937A001E0674 /* Screeen2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417C53E12178937A001E0674 /* Screeen2.swift */; };
 		41816D3C216C64040006A4DC /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41816D3B216C64040006A4DC /* RatingControl.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +68,10 @@
 		4160CF5A216930D6006415D7 /* UIViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewUITests.swift; sourceTree = "<group>"; };
 		4160CF5C216930D6006415D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		417C53D821783074001E0674 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		417C53DA21784029001E0674 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		417C53DD21788959001E0674 /* LifecycleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifecycleViewController.swift; sourceTree = "<group>"; };
+		417C53DF2178896B001E0674 /* Lifecycle.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lifecycle.storyboard; sourceTree = "<group>"; };
+		417C53E12178937A001E0674 /* Screeen2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screeen2.swift; sourceTree = "<group>"; };
 		41816D3B216C64040006A4DC /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +125,7 @@
 				417C53D72178304C001E0674 /* TableViewCell */,
 				415EA3B72177300F009868E7 /* TableViewController.swift */,
 				415EA3B92177304C009868E7 /* TableView.storyboard */,
+				417C53DA21784029001E0674 /* Model.swift */,
 			);
 			path = TabletView;
 			sourceTree = "<group>";
@@ -144,6 +153,7 @@
 		4160CF39216930D5006415D7 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				417C53DC2178892D001E0674 /* Lifecycle */,
 				415EA3B621772FC6009868E7 /* TabletView */,
 				414329522175D6E900F5617A /* TipCalculator */,
 				4143294C2175A5C200F5617A /* AutoLayout */,
@@ -182,6 +192,16 @@
 				417C53D821783074001E0674 /* TableViewCell.swift */,
 			);
 			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		417C53DC2178892D001E0674 /* Lifecycle */ = {
+			isa = PBXGroup;
+			children = (
+				417C53DD21788959001E0674 /* LifecycleViewController.swift */,
+				417C53DF2178896B001E0674 /* Lifecycle.storyboard */,
+				417C53E12178937A001E0674 /* Screeen2.swift */,
+			);
+			path = Lifecycle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,6 +313,7 @@
 				4160CF42216930D6006415D7 /* Assets.xcassets in Resources */,
 				4160CF40216930D5006415D7 /* Main.storyboard in Resources */,
 				414329562175D72500F5617A /* TipCalculator.storyboard in Resources */,
+				417C53E02178896B001E0674 /* Lifecycle.storyboard in Resources */,
 				414329502175A60A00F5617A /* AutoLayout.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,14 +339,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				417C53DB21784029001E0674 /* Model.swift in Sources */,
 				414329542175D71100F5617A /* TipCalculatorViewController.swift in Sources */,
 				417C53D921783074001E0674 /* TableViewCell.swift in Sources */,
 				4160CF3D216930D5006415D7 /* ViewController.swift in Sources */,
+				417C53E22178937A001E0674 /* Screeen2.swift in Sources */,
 				415EA3B82177300F009868E7 /* TableViewController.swift in Sources */,
 				41816D3C216C64040006A4DC /* RatingControl.swift in Sources */,
 				4160CF3B216930D5006415D7 /* AppDelegate.swift in Sources */,
 				414329582175E53700F5617A /* TipCalcModule.swift in Sources */,
 				4143294E2175A5F600F5617A /* AutoLayoutViewController.swift in Sources */,
+				417C53DE21788959001E0674 /* LifecycleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

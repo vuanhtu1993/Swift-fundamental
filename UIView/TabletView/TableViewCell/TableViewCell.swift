@@ -24,9 +24,8 @@ class TableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setData(row: Int) {
-        if row % 2 == 0 {
-            labelDescription.text = "abc"
-        }
+    func setData(human: Human) {
+        labelName.text = human.name
+        labelDescription.text = human.description
     }
 }
