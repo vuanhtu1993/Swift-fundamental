@@ -12,19 +12,44 @@ class TableViewDemo: UIViewController {
 
     // MARK: IB Outlet
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var containerCheckBox: CheckBoxView!
+    
+    // MARK: Property
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Run into tableView delegate
         self.setupTableView()
-
-        // Do any additional setup after loading the view.
+        // Prepare data for tableView
+        self.getPreparation()
+        // Setup checkboxView
+        self.setupCheckboxView()
     }
     
     // MARK: Setup TableView
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    // MARK: Setup CheckboxView
+    private func setupCheckboxView() {
+        let checkBox: CheckBoxView = CheckBoxView.loadView()
+        checkBox.delegate = self
+        checkBox.changeStatus(status: true)  
+        containerCheckBox.addSubview(checkBox)
+        checkBox.frame = containerCheckBox.bounds
+    }
+    
+    // MARK: Call API
+    func getPreparation() {
+        PreparationService.sharedInstance.getPreparationContent() { (error, value) in
+            if let _ = error {
+                print("Server error")
+            } else if let listPreparation = value {
+                print(listPreparation)
+            }
+        }
     }
     
     
@@ -58,6 +83,11 @@ extension TableViewDemo: UITableViewDelegate, UITableViewDataSource {
         }
         return UITableViewCell()
     }
-    
-    
+
+}
+
+extension TableViewDemo: CheckBoxDelegate {
+    func clickedCheckbox(_ status: Bool) {
+        print(status)
+    }
 }

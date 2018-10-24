@@ -19,13 +19,25 @@ class ViewController: UIViewController, UITextFieldDelegate,UIImagePickerControl
     @IBOutlet weak var buttonImageView: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var containerView: UIView!
+    
+//    let checkbox: CheckBox = CheckBox.loadView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // handle text field user input through delegate callback
-        nameTextField.delegate = self
+//        nameTextField.delegate = self
+        
+//        containerView.addSubview(checkbox)
+        
         
     }
+    
+//    override func viewWillLayoutSubviews() {
+//        super.viewWillLayoutSubviews()
+//        checkbox.frame = containerView.bounds
+//    }
 
     // MARK: Actions
     @IBAction func setDefaultLabel(_ sender: UIButton) {
