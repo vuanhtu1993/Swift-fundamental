@@ -155,3 +155,34 @@ firstVC.delegate = secondVC
 // Thực hiện phương thức được uỷ quyền
 firstVC.delegate?.notify(data: "Happy woman day")
 ```
+
+### Casting type as Protocol
+```swift
+protocol IInputIncomeInformationCell {
+    func setHeader(_ header: String)
+    func setValue(_ value: String?)
+}
+
+class Cell1: IInputIncomeInformationCell {
+    func setHeader(_ header: String) {
+        
+    }
+    
+    func setValue(_ value: String?) {
+        
+    }
+}
+
+class Cell2 {
+    
+}
+
+var cell = Cell2()
+
+if let customCell = cell as? IInputIncomeInformationCell {
+    customCell.setHeader("String header")
+} else {
+    //
+}
+
+```
