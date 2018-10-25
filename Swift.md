@@ -4,21 +4,21 @@
 * Building to Devices
 * Uploading an App to the App Store
 * UIKit (ok)
-* Auto Layout 
-* Understanding of Model-View-Controller & OOP
-* Debugging Apps in Xcode
+* Auto Layout (ok)
+* Understanding of Model-View-Controller & OOP (ok)
+* Debugging Apps in Xcode (thinking)
 * Using the Instruments tool
-* Using / Combining XIB’s, UIStoryboard, Segues and various presentation/transition techniques
-* Persisting data with Core Data (Realm is a good option too, but not stock iOS)
-* All about UITableView
-* All about UICollectionView
-* Parsing JSON into usable data in apps
-* NotificationCenter & Notifications
-* Delegates & Protocols
-* Interacting with RESTful APIs
-* Git or another method of version control
-* Understanding of DRY Principle
-* Multi-Threading
+* Using / Combining XIB’s, UIStoryboard, Segues and various presentation/transition techniques (a lot of difficulty things)
+* Persisting data with Core Data (Realm is a good option too, but not stock iOS) (——— not using in this project ———)
+* All about UITableView (Studying in this section)
+* All about UICollectionView (in 2 days)
+* Parsing JSON into usable data in apps (thinking)
+* NotificationCenter & Notifications (thinking)
+* Delegates & Protocols ( WTF )
+* Interacting with RESTful APIs (ok)
+* Git or another method of version control (ok)
+* Understanding of DRY Principle (thinking)
+* Multi-Threading (thinking)
 * Unit Testing with XCTest
 * Using AutoLayout Size Classes to build great experiences for both iPhone and iPad
  
