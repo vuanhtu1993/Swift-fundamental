@@ -186,3 +186,26 @@ if let customCell = cell as? IInputIncomeInformationCell {
 }
 
 ```
+
+### Example for enum
+```swift
+enum InputIncomeJobRowIndex: Int {
+    case netIncome = 0, expense = 1, currentJob = 2
+    case startFrom = 3, jobLevel = 4, company = 5
+}
+
+InputIncomeJobRowIndex(rawValue: 0) // netIncome
+type(of: InputIncomeJobRowIndex(rawValue: 0))
+//Optional<__lldb_expr_5.InputIncomeJobRowIndex>.Type
+
+func valueForJobSection(row: InputIncomeJobRowIndex) {
+    switch row {
+    case .company:
+        print("Company")
+    default:
+        print("Default")
+    }
+}
+
+valueForJobSection(row: InputIncomeJobRowIndex(rawValue: 0)!) //"Default\n"
+```
