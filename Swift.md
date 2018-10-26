@@ -209,3 +209,73 @@ func valueForJobSection(row: InputIncomeJobRowIndex) {
 
 valueForJobSection(row: InputIncomeJobRowIndex(rawValue: 0)!) //"Default\n"
 ```
+### Example for Enum
+```swift
+enum ValidationType {
+    case email
+    case password
+}
+
+enum Alert {
+    case success
+    case error
+    case failure
+}
+
+enum Valid {
+    case success
+    case error(alert: Alert, message: Message)
+}
+
+enum Message: String {
+    case passwordError = "Error password"
+    case emailError =  "Error email"
+    case empty = "The text field is empty"
+    func localized() -> String {
+        return NSLocalizedString(self.rawValue, comment: "")
+    }
+}
+
+enum Regex: String {
+    case regexEmail = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+    case regexPassword = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
+}
+
+
+
+class Validation {
+    static let shared = Validation()
+    
+    private init(){}
+    
+    func checkValidation(type: ValidationType, value: String) -> Valid {
+        switch type {
+        case .email:
+            if let result = validateString(input: value, regex: .regexEmail, emptyAlert: Message.empty, invalidAlert: Message.emailError) {
+                return result
+            }
+        case .password:
+            if let result = validateString(input: value, regex: .regexPassword, emptyAlert: Message.empty, invalidAlert: Message.passwordError) {
+                return result
+            }
+        }
+        return .success
+    }
+    
+    func validateString(input: String, regex: Regex, emptyAlert: Message, invalidAlert: Message) -> Valid? {
+        if input.isEmpty {
+            return .error(alert: .error, message: emptyAlert)
+        } else if isValidRegEx(testStr: input, regex: regex) != true {
+            return .error(alert: .error, message: invalidAlert)
+        }
+        return nil
+    }
+    
+    func isValidRegEx( testStr: String, regex: Regex) -> Bool {
+        let stringTest = NSPredicate(format:"SELF MATCHES %@", regex.rawValue)
+        let result = stringTest.evaluate(with: testStr)
+        return result
+    }
+}
+
+```
