@@ -278,4 +278,25 @@ class Validation {
     }
 }
 
+### Example for CallBack
+```swift
+func horMirror(_ s: String) -> String {
+    let arrayString = s.components(separatedBy: "\n").reversed().joined(separator: "\n")
+    return arrayString
+}
+
+func vertMirror(_ s: String) -> String {
+    var arrayString = s.components(separatedBy: "\n")
+    arrayString = arrayString.map({ (word) in
+        return String(word.reversed())
+    })
+    return arrayString.joined(separator: "\n")
+}
+
+// replace the dots with function parameter
+func oper(_ cb: (String) -> String, _ s: String) -> String {
+    return cb(s)
+}
+```
+
 ```
