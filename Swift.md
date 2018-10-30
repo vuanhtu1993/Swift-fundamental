@@ -28,7 +28,7 @@ Type Casting:
     - You can also use type casting to check whether a type conforms to a protocol 
 
 
-### What is closure?
+###  1. What is closure?
 >Closure expressions: là closures không có tên được viết dưới dạng giản lược syntax và có thể “capture” các giá trị từ các bối cảnh xung quanh
 ```swift
 // Khai bao closure
@@ -109,7 +109,7 @@ cha.con.triggerClosure()
 
 3. -> If I assign a cloure to two var, they actually refer to the same closure
 
-### Escape vs Non-Escaping
+### 2. Escape vs Non-Escaping
 >escape: mean the close will be STORED somewhere to execute later (and of course, its context also being STORED and this is >the main reason cause retain cycles). Usually meet as api call
 ```swift
 DispatchQueue.main.async {
@@ -128,7 +128,7 @@ DispatchQueue.main.async {
 var onUserPick: ((_ user: User) -> Void)?
 ```
 
-### Delegate in swift
+### 3. Delegate in swift
 // Delegate
 ``` swift
 protocol FirstVCDelegate {
@@ -156,7 +156,7 @@ firstVC.delegate = secondVC
 firstVC.delegate?.notify(data: "Happy woman day")
 ```
 
-### Casting type as Protocol
+### 4. Casting type as Protocol
 ```swift
 protocol IInputIncomeInformationCell {
     func setHeader(_ header: String)
@@ -187,7 +187,7 @@ if let customCell = cell as? IInputIncomeInformationCell {
 
 ```
 
-### Example for enum
+### 5. Example for enum
 ```swift
 enum InputIncomeJobRowIndex: Int {
     case netIncome = 0, expense = 1, currentJob = 2
@@ -209,7 +209,7 @@ func valueForJobSection(row: InputIncomeJobRowIndex) {
 
 valueForJobSection(row: InputIncomeJobRowIndex(rawValue: 0)!) //"Default\n"
 ```
-### Example for Enum
+### Example 2 for Enum
 ```swift
 enum ValidationType {
     case email
@@ -277,8 +277,9 @@ class Validation {
         return result
     }
 }
+```
 
-### Example for CallBack
+### 6. Example for CallBack
 ```swift
 func horMirror(_ s: String) -> String {
     let arrayString = s.components(separatedBy: "\n").reversed().joined(separator: "\n")
