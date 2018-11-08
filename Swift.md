@@ -300,4 +300,116 @@ func oper(_ cb: (String) -> String, _ s: String) -> String {
 }
 ```
 
+## 7. Create Table View Programing
+* Bước 1: Tạo UITableView
+```swift
+  import UIKit
+
+class MainTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+    override init(frame: CGRect, style: UITableView.Style) {
+        super.init(frame: CGRect.zero, style: .grouped)
+        
+        // delegate
+        self.delegate = self
+        self.dataSource = self
+        
+        // autolayout for tableview
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Register cell
+        register(CustomCellByPrograming.self, forCellReuseIdentifier: "CellID")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellID", for: indexPath) as! CustomCellByPrograming
+        return cell
+    }
+    
+}
+```
+* Bước 2: Tạo Custom Cell
+```swift
+import UIKit
+
+class CustomCellByPrograming: UITableViewCell {
+    
+    // Cell element
+    lazy var cellLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Example"
+        return label
+    }()
+    
+    lazy var cellImage: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.backgroundColor = UIColor.orange
+        return image
+    }()
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: "CellID")
+        
+        // Setup view cell (bản chất là constrain)
+        setupCell()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupCell() {
+        // Constraint for whole cell
+//        let margins = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+//        contentView.frame = contentView.view.inset(by: margins)
+        
+        // Constraint for image
+        contentView.backgroundColor = UIColor.blue
+        contentView.addSubview(cellImage)
+        cellImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
+        cellImage.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
+        cellImage.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        cellImage.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        // Constraint for label
+        contentView.addSubview(cellLabel)
+        cellLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        cellLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+    }
+}
+
+```
+* Bước 3: Sử dung thôi (Sử dụng ở bất kì UIViewController )
+```swift
+import UIKit
+
+class TableByProgramingViewController: UIViewController {
+    
+    let tableView = MainTableView()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        setupTableView()
+    }
+    
+    func setupTableView() {
+        self.view.addSubview(tableView)
+        // Constrainst
+        tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+    }
+
+}
 ```
