@@ -21,4 +21,21 @@ class TableViewCellDemo: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBOutlet weak var preparationImage: UIImageView!
+    @IBOutlet weak var preparationLable: UILabel!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        preparationImage.image = nil
+        preparationLable.text = nil
+    }
+    
+    func setValueForCell(preparationData: Preparation) {
+        preparationLable.text = preparationData.info
+        let data = try? Data(contentsOf: URL(string: preparationData.imageURL)!)
+        DispatchQueue.main.async {
+            self.preparationImage.image = UIImage(data: data!)
+        }
+    }
+    
 }

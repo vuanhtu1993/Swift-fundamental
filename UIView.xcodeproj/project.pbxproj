@@ -40,6 +40,9 @@
 		41816D3C216C64040006A4DC /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41816D3B216C64040006A4DC /* RatingControl.swift */; };
 		41D2F261218008A900F63F0E /* CheckBoxView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41D2F260218008A900F63F0E /* CheckBoxView.xib */; };
 		41D2F263218008D400F63F0E /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2F262218008D400F63F0E /* CheckBoxView.swift */; };
+		41F5596C2193D65900BCEF91 /* MainTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F5596B2193D65900BCEF91 /* MainTableView.swift */; };
+		41F5596E2193D6C500BCEF91 /* TableByProgramingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F5596D2193D6C500BCEF91 /* TableByProgramingViewController.swift */; };
+		41F559702193DAEF00BCEF91 /* CustomCellByPrograming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F5596F2193DAEF00BCEF91 /* CustomCellByPrograming.swift */; };
 		7FC63469B422BB56C9F7472D /* Pods_UIView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A657702D4986F994B01F7E /* Pods_UIView.framework */; };
 		BB3EC764776C3F6427210F15 /* Pods_UIViewUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F302138C4B07556FF6EDFD /* Pods_UIViewUITests.framework */; };
 		BB87FC2040AB028C2A331EDD /* Pods_UIViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0EDB630BD0CD0E3C37743AC /* Pods_UIViewTests.framework */; };
@@ -105,6 +108,9 @@
 		41816D3B216C64040006A4DC /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		41D2F260218008A900F63F0E /* CheckBoxView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckBoxView.xib; sourceTree = "<group>"; };
 		41D2F262218008D400F63F0E /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
+		41F5596B2193D65900BCEF91 /* MainTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableView.swift; sourceTree = "<group>"; };
+		41F5596D2193D6C500BCEF91 /* TableByProgramingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableByProgramingViewController.swift; sourceTree = "<group>"; };
+		41F5596F2193DAEF00BCEF91 /* CustomCellByPrograming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellByPrograming.swift; sourceTree = "<group>"; };
 		86D86C54C3AA83A22702FE7F /* Pods-UIViewUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIViewUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UIViewUITests/Pods-UIViewUITests.release.xcconfig"; sourceTree = "<group>"; };
 		87FDF6D1C5A4357ED7954D44 /* Pods-UIViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIViewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UIViewTests/Pods-UIViewTests.release.xcconfig"; sourceTree = "<group>"; };
 		977500A25D0C5667337D3E7E /* Pods-UIView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIView.release.xcconfig"; path = "Pods/Target Support Files/Pods-UIView/Pods-UIView.release.xcconfig"; sourceTree = "<group>"; };
@@ -228,6 +234,7 @@
 		4160CF39216930D5006415D7 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				41F5596A2193D5DE00BCEF91 /* TableViewByPrograming */,
 				417C575C217DB0CE0099078B /* Common */,
 				414BB398217ED94E00954F26 /* TableView */,
 				417C5755217DAD390099078B /* ReusableCustom */,
@@ -319,6 +326,16 @@
 				41D2F262218008D400F63F0E /* CheckBoxView.swift */,
 			);
 			path = CheckBox;
+			sourceTree = "<group>";
+		};
+		41F5596A2193D5DE00BCEF91 /* TableViewByPrograming */ = {
+			isa = PBXGroup;
+			children = (
+				41F5596B2193D65900BCEF91 /* MainTableView.swift */,
+				41F5596D2193D6C500BCEF91 /* TableByProgramingViewController.swift */,
+				41F5596F2193DAEF00BCEF91 /* CustomCellByPrograming.swift */,
+			);
+			path = TableViewByPrograming;
 			sourceTree = "<group>";
 		};
 		AC144CEBDB5D93C6363440A1 /* Frameworks */ = {
@@ -570,14 +587,17 @@
 			files = (
 				417C53DB21784029001E0674 /* Model.swift in Sources */,
 				414329542175D71100F5617A /* TipCalculatorViewController.swift in Sources */,
+				41F5596C2193D65900BCEF91 /* MainTableView.swift in Sources */,
 				417C53D921783074001E0674 /* TableViewCell.swift in Sources */,
 				4160CF3D216930D5006415D7 /* ViewController.swift in Sources */,
 				417C5757217DAE800099078B /* DateViewController.swift in Sources */,
 				417C53E22178937A001E0674 /* Screeen2.swift in Sources */,
 				415EA3B82177300F009868E7 /* TableViewController.swift in Sources */,
 				41D2F263218008D400F63F0E /* CheckBoxView.swift in Sources */,
+				41F5596E2193D6C500BCEF91 /* TableByProgramingViewController.swift in Sources */,
 				41816D3C216C64040006A4DC /* RatingControl.swift in Sources */,
 				414BB3A0217F066200954F26 /* Preparation.swift in Sources */,
+				41F559702193DAEF00BCEF91 /* CustomCellByPrograming.swift in Sources */,
 				417C575B217DB0C30099078B /* DatePickerPopup.swift in Sources */,
 				4160CF3B216930D5006415D7 /* AppDelegate.swift in Sources */,
 				414BB39E217EF83C00954F26 /* TableViewCellDemo.swift in Sources */,

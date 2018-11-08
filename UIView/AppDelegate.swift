@@ -16,7 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let TipCalculator = TableViewDemo.createModule()
+        
+        // Inital rootViewControler by story board
+        // let TipCalculator = TableViewDemo.createModule()
+        
+        // Initial rootViewController by programing code
+        let TipCalculator = TableByProgramingViewController()
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = TipCalculator

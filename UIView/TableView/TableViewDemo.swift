@@ -14,6 +14,9 @@ class TableViewDemo: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var containerCheckBox: CheckBoxView!
     
+    // MARK: Data
+    var listPreparation = [Preparation]()
+    
     // MARK: Property
     
     override func viewDidLoad() {
@@ -47,9 +50,16 @@ class TableViewDemo: UIViewController {
             if let _ = error {
                 print("Server error")
             } else if let listPreparation = value {
-                print(listPreparation)
+                self.listPreparation = listPreparation
+                self.tableView.reloadData()
             }
         }
+    }
+    
+    @IBAction func showMessage() {
+        let alertController = UIAlertController(title: "Welcome", message: "Hello world", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
     }
     
     
@@ -67,7 +77,7 @@ class TableViewDemo: UIViewController {
 
 extension TableViewDemo: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return listPreparation.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -79,6 +89,7 @@ extension TableViewDemo: UITableViewDelegate, UITableViewDataSource {
             cell = tableView.dequeueReusableCell(withIdentifier: "cellLeft", for: indexPath) as? TableViewCellDemo
         }
         if let unwrapedCell = cell {
+            unwrapedCell.setValueForCell(preparationData: listPreparation[indexPath.row])
             return unwrapedCell
         }
         return UITableViewCell()
