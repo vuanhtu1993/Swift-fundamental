@@ -31,6 +31,16 @@ Type Casting:
 ## 1.  Value Types and Reference Types
 ![](./valueType.png?raw=true)
 
+> Value types: Là kiểu dữ liệu tham trị, các ínstance của kiểu dữ liệu này sẽ đc lưu trong stack. CPU tự động quẩn lí stack, nếu biến là kiểu dữ liệu tham trị nào không được dùng sẽ tự động destroy
+
+> Reference Types: Là kiểu dữ liệu tham chiếu, các instance được lưu trong heap. 
+
+*  Phân biệt stack and heap
+ 1. Stack: Là vùng nhớ trong RAM được quản lí chắt chẽ (tightly management) bới CPU. Ví dụ như như biến được khai báo trong function, sau khi function execute thì biến đó sẽ bị destroy
+ 
+ 2. Heap: Là vùng nhớ lưu trữ các instance của kiểu dữ liệu tham chiếu. Vùng nhớ naỳ không tự động destroy object giống như stack. ARC là job của apple phát triển cho các ứng dụng applr nhằm quản lí vùng nhớ này
+
+> ARC cơ bản nghia là: Nếu một object không có tham chiếu nào đến nó hoăcj chỉ có tham chiếu yếu đến nó thì nó sẽ bị 
 ###  What is closure?
 >Closure expressions: là closures không có tên được viết dưới dạng giản lược syntax và có thể “capture” các giá trị từ các bối cảnh xung quanh
 ```swift
