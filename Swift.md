@@ -28,6 +28,9 @@ Type Casting:
     - You can also use type casting to check whether a type conforms to a protocol 
 
 
+## Value Types and Reference Types
+![](./valueType.png?raw=true)
+
 ###  1. What is closure?
 >Closure expressions: là closures không có tên được viết dưới dạng giản lược syntax và có thể “capture” các giá trị từ các bối cảnh xung quanh
 ```swift
