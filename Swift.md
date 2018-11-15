@@ -41,7 +41,7 @@ Type Casting:
  2. Heap: Là vùng nhớ lưu trữ các instance của kiểu dữ liệu tham chiếu. Vùng nhớ naỳ không tự động destroy object giống như stack. ARC là job của apple phát triển cho các ứng dụng applr nhằm quản lí vùng nhớ này
 
 > ARC cơ bản nghia là: Nếu một object không có tham chiếu nào đến nó hoăcj chỉ có tham chiếu yếu đến nó thì nó sẽ bị 
-###  What is closure?
+## 2. What is closure?
 >Closure expressions: là closures không có tên được viết dưới dạng giản lược syntax và có thể “capture” các giá trị từ các bối cảnh xung quanh
 ```swift
 // Khai bao closure
@@ -122,6 +122,44 @@ cha.con.triggerClosure()
 
 3. -> If I assign a cloure to two var, they actually refer to the same closure
 
+#### Các kiểu triển khai closure:
+> Coding
+```swift
+// Normal
+var closure: (String) -> String = { a in
+    return a + "123"
+}
+
+// Inferred type
+var closureInfferred = { (a: String) -> String in
+   return a + "123"
+}
+// Short hand
+var superShortClosure: (Int, Int) -> Int = {$0 + $1}
+```
+
+> Trên View
+```swift
+// Function
+func superView() -> UIView {
+    let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 80))
+    view.backgroundColor = UIColor.orange
+    return view
+}
+// Closure
+var superView2 = { () -> UIView in
+    let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 80))
+    view.backgroundColor = UIColor.red
+    return view
+}
+// Lazy var ios
+var superView3: UIView = {
+    let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 80))
+    view.backgroundColor = UIColor.blue
+    return view
+}()
+```
+
 ### 2. Escape vs Non-Escaping
 >escape: mean the close will be STORED somewhere to execute later (and of course, its context also being STORED and this is >the main reason cause retain cycles). Usually meet as api call
 ```swift
@@ -200,7 +238,7 @@ if let customCell = cell as? IInputIncomeInformationCell {
 
 ```
 
-### 5. Example for enum
+## 5. Example for enum
 ```swift
 enum InputIncomeJobRowIndex: Int {
     case netIncome = 0, expense = 1, currentJob = 2
@@ -425,4 +463,42 @@ class TableByProgramingViewController: UIViewController {
     }
 
 }
+```
+
+## 8. Gradient
+```swift
+func addGradientView() {
+        gradientView.layer.shadowOffset = CGSize(width: 0, height: 15)
+        gradientView.layer.shadowColor = UIColor(red:0.5, green:0.53, blue:0.59, alpha:0.62).cgColor
+        gradientView.layer.shadowOpacity = 1
+        gradientView.layer.shadowRadius = 28
+        
+        let gradient = CAGradientLayer()
+        gradient.frame = gradientView.bounds
+        gradient.colors = [
+            UIColor(red:0.08, green:0.72, blue:0.82, alpha:1).cgColor,
+            UIColor(red:0.45, green:0.44, blue:0.89, alpha:1).cgColor
+        ]
+        gradient.locations = [0, 1]
+        gradient.startPoint = CGPoint(x: 1, y: 0.58)
+        gradient.endPoint = CGPoint(x: 0, y: 0.58)
+        
+        gradientView.layer.addSublayer(gradient)
+    }
+```
+
+## 9. Border Shadow IOS
+```swift
+let container = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
+container.backgroundColor = UIColor.white
+
+let viewShadow = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+viewShadow.backgroundColor = UIColor.yellow
+viewShadow.layer.shadowColor = UIColor.black.cgColor
+viewShadow.layer.shadowOpacity = 0.5
+viewShadow.layer.shadowOffset = CGSize.zero
+viewShadow.layer.shadowRadius = 20
+
+viewShadow.center = container.center
+container.addSubview(viewShadow)
 ```
