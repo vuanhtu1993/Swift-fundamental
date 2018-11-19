@@ -46,6 +46,5 @@ lazy var home: UIBarButtonItem = {
 // ADD Bar Button vào Navigation
 func navigationBarWithHome(title: String, prefersLargeTitles: Bool = false) {
         self.navigationItem.leftBarButtonItem = home
-        navigationBarWithNotificationProfileTitle(title: title, prefersLargeTitles: prefersLargeTitles)
     }
 ```
