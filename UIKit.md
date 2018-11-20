@@ -20,6 +20,20 @@
     }
 
 ```
+#### Khởi tạo riêng
+```swift
+extension TodoViewController {
+    
+    static var mainstoryboard: UIStoryboard {
+        return UIStoryboard(name: "Main", bundle: nil)
+    }
+    static func createViewController() -> TodoViewController {
+        let view = mainstoryboard.instantiateViewController(withIdentifier: "TodoViewController") as! TodoViewController
+        
+        return view
+    }
+}
+```
 
 ## 2. Khởi tạo BaseViewController
 > Một baseViewController chứa NavigationBar, NavigationItem và một số thành phần để xử lí VỉewController
