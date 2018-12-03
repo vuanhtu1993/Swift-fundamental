@@ -199,6 +199,33 @@ firstVC.delegate = secondVC
 // Thực hiện phương thức được uỷ quyền
 firstVC.delegate?.notify(data: "Happy woman day")
 ```
+// Example 2
+```
+class Cha: ConDelegate {
+    var con = Con()
+    init() {
+        con.delegate = self
+    }
+    func notify() {
+        print("Con vua thong bao")
+    }
+}
+
+protocol ConDelegate: class {
+    func notify()
+}
+
+class Con {
+    weak var delegate: ConDelegate?
+    
+    func triggerDelegate() {
+        delegate?.notify()
+    }
+}
+
+var cha = Cha()
+cha.con.triggerDelegate()
+```
 
 ### 4. Casting type as Protocol
 ```swift
