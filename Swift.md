@@ -89,6 +89,7 @@ dynamicFunction(a: 10, b: 30, callback: multiply)
 dynamicFunction(a: 1, b: 2, callback: {(a, b) in return a * b})
 ```
 2. Truyến dữ liệu giữa thằng class cha với class con (đã kiểm chứng là đúng)
+* Hiểu đơn giàn là: thằng con có hàm `triggerClosure` nhưng tại nội tại của nó lại không thực thi được việc gì cả, mà muốn truyền một function khác vào trong thân của `closure` và thực thi bên trong ``
 ```swift
 class Cha {
     var con = Con()
@@ -113,14 +114,6 @@ cha.con.triggerClosure()
 > Closures are self-contained blocks of functinality that can be PASSED around and USED in your code
 
 1. -> Closure is a 1st class Object
-
-> Closures can CAPTURE and STORE REFERENCES to any constants and variables from the CONTEXT which they ayre defined
-
-2. -> by reference mean not value, means, If we change any thing inside the closure, the object outsite the closure will also be affected
-
-> Closures are Reference Types
-
-3. -> If I assign a cloure to two var, they actually refer to the same closure
 
 #### Các kiểu triển khai closure:
 > Coding
