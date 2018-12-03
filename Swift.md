@@ -200,7 +200,7 @@ firstVC.delegate = secondVC
 firstVC.delegate?.notify(data: "Happy woman day")
 ```
 // Example 2
-```
+```swift
 class Cha: ConDelegate {
     var con = Con()
     init() {
