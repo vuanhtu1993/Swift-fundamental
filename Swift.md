@@ -88,7 +88,7 @@ dynamicFunction(a: 10, b: 30, callback: multiply)
 
 dynamicFunction(a: 1, b: 2, callback: {(a, b) in return a * b})
 ```
-2. Truyến dữ liệu giữa thằng class cha với class con
+2. Truyến dữ liệu giữa thằng class cha với class con (đã kiểm chứng là đúng)
 ```swift
 class Cha {
     var con = Con()
