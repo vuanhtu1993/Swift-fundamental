@@ -62,3 +62,63 @@ func navigationBarWithHome(title: String, prefersLargeTitles: Bool = false) {
         self.navigationItem.leftBarButtonItem = home
     }
 ```
+## 3. Count down Timer
+```swift
+class ViewController: UIViewController {
+
+    @IBOutlet weak var timerLabel: UILabel!
+
+    var countdownTimer: Timer!
+    var totalTime = 60
+
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+
+    func startTimer() {
+        countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+    }
+
+    @objc func updateTime() {
+        timerLabel.text = "\(timeFormatted(totalTime))"
+
+        if totalTime != 0 {
+            totalTime -= 1
+        } else {
+            endTimer()
+        }
+    }
+
+    func endTimer() {
+        countdownTimer.invalidate()
+    }
+
+    func timeFormatted(_ totalSeconds: Int) -> String {
+        let seconds: Int = totalSeconds % 60
+        let minutes: Int = (totalSeconds / 60) % 60
+        //     let hours: Int = totalSeconds / 3600
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
+
+
+    @IBAction func startTimerPressed(_ sender: UIButton) {
+        startTimer()
+    }
+
+}
+```
+## 4. Extension String
+```swift
+   extension String {
+       var html2AttStr: NSAttributedString? {
+           return try? NSAttributedString(data: Data(utf8), options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue], documentAttributes: nil)
+       }
+   }
+
+   let attributeText = "<style type=\"text/css\">#red{color:#F00}#green{color:#0F0}#blue{color: #00F; font-weight: Bold; font-size: 32}</style><span id=\"red\" >Red,</span><span id=\"green\" > Green </span><span id=\"blue\">and Blue</span>".html2AttStr
+
+   let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+   label.attributedText = attributeText
+```
