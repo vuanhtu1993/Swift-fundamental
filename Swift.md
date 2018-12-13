@@ -605,37 +605,32 @@ func loginIfLet(){
 }
 loginIfLet()
 ```
-#### Sử dụng `gủard let`
+#### Sử dụng `guard let` dòng lệnh chạy từ trên xuống dưới, cứ sai ở guard nào là break luôn 
 ```swift
-func swapTwoInts(_ a: inout Int, _ b: inout Int) {
-    let temporaryA = a
-    a = b
-    b = temporaryA
+func loginGuardLet(){
+    guard let email = emailField.text else {
+        print("Email is empty.")
+        return
+    }
+    guard let username = usernameField.text else {
+        print("Username is empty.")
+        return
+    }
+    guard let password = passwordField.text else {
+        print("Password is empty.")
+        return
+    }
+    guard let conifrmPassword = conifrmPasswordField.text else {
+        print("Conifrm password is empty.")
+        return
+    }
+    if password == conifrmPassword {
+        print("Email - \(email)")
+        print("Username - \(username)")
+        print("Password - \(password)")
+    } else {
+        print("Password didn't match with conifrm password.")
+    }
 }
-
-func swapTwoStrings(_ a: inout String, _ b: inout String) {
-    let temporaryA = a
-    a = b
-    b = temporaryA
-}
-
-var someInt = 3
-var anotherInt = 107
-swapTwoInts(&someInt, &anotherInt)
-print("someInt = \(someInt)")
-print("anotherInt = \(anotherInt)")
-/* prints
- someInt = 107
- anotherInt = 3
- */
- 
-var someString = "hello"
-var anotherString = "world"
-swapTwoStrings(&someString, &anotherString)
-print("someString = \(someString)")
-print("anotherString = \(anotherString)")
-/* prints
- someString = world
- anotherString = hello
- */
+loginGuardLet()
 ```
