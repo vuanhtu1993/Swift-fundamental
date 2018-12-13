@@ -556,4 +556,86 @@ var label: UILabel!
 label.text = data ?? ""
 ```
 - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `Lưu ý ternary conditional voi Nil coalescing`
+```swift
+// Toán tử 3 ngôi (ternary conditional không có tác dụng unwraping biến như là Nil coalescing)
+var data: String?
+var label: UILabel!
+// Buộc phải kiểm tra optional var chứ ko tự unwrap như là nil coalescing
+label.text = data != nil ? data : ""
+```
 
+## 11. Sự khác biệt giữa `guard và if let`
+- Cả 2 thằng if let và guard let đểu có thể unwrap optional. Tuy nhiên thằng guard let hỗ trợ tốt hơn khi chúng ta cần check nhiều điều kiện lồng nhau. Nó sẽ out ra nếu gặp 1 thằng điều kiện không đáp ứng được. Hơn nữa guard let làm cho mã nguồn của mình dễ đọc hơn và dễ dàng maintain sau này. Sau đây là ví dụ để tạo new user:
+```swift
+let emailField = UITextField()
+emailField.text = "abcd@mail.com"
+let usernameField = UITextField()
+usernameField.text = "vineet"
+let passwordField = UITextField()
+passwordField.text = "123456"
+let conifrmPasswordField = UITextField()
+conifrmPasswordField.text = "123456"
+```
+#### Sử dụng `if let`
+```swift
+func loginIfLet(){
+    if let email = emailField.text {
+        if let username = usernameField.text {
+            if let password = passwordField.text {
+                if let conifrmPassword = conifrmPasswordField.text {
+                    if password == conifrmPassword {
+                        print("Email - \(email)")
+                        print("Username - \(username)")
+                        print("Password - \(password)")
+                    } else {
+                        print("Password didn't match with conifrm password.")
+                    }
+                } else {
+                    print("Conifrm password is empty.")
+                }
+            } else {
+                print("Password is empty.")
+            }
+        } else {
+            print("Username is empty.")
+        }
+    } else {
+        print("Email is empty.")
+    }
+}
+loginIfLet()
+```
+#### Sử dụng `gủard let`
+```swift
+func swapTwoInts(_ a: inout Int, _ b: inout Int) {
+    let temporaryA = a
+    a = b
+    b = temporaryA
+}
+
+func swapTwoStrings(_ a: inout String, _ b: inout String) {
+    let temporaryA = a
+    a = b
+    b = temporaryA
+}
+
+var someInt = 3
+var anotherInt = 107
+swapTwoInts(&someInt, &anotherInt)
+print("someInt = \(someInt)")
+print("anotherInt = \(anotherInt)")
+/* prints
+ someInt = 107
+ anotherInt = 3
+ */
+ 
+var someString = "hello"
+var anotherString = "world"
+swapTwoStrings(&someString, &anotherString)
+print("someString = \(someString)")
+print("anotherString = \(anotherString)")
+/* prints
+ someString = world
+ anotherString = hello
+ */
+```
