@@ -555,4 +555,5 @@ var label: UILabel!
 
 label.text = data ?? ""
 ```
+- ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `Lưu ý ternary conditional voi Nil coalescing`
 
