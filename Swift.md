@@ -522,3 +522,37 @@ viewShadow.layer.shadowRadius = 20
 viewShadow.center = container.center
 container.addSubview(viewShadow)
 ```
+
+## 10. 4 Cách để Unwraping trong swift
+> 1. sử dụng `!` trưc tiếp 
+```swift
+var data: String?
+
+label.text = data!
+```
+> 2. sử dụng `if let`
+```swift
+var data: String?
+var label: UILabel!
+
+if let dataString = data {
+  label.text = dataString
+}
+```
+> 3. sử dụng `guard let`
+```swift
+var data: String?
+var label: UILabel!
+
+guard let dataString = data else { return }
+
+label.text = dataString
+```
+> 4. Nil coalescing ( a ?? b Toán tử này sẽ unwrap optional a)
+```swift
+var data: String?
+var label: UILabel!
+
+label.text = data ?? ""
+```
+
