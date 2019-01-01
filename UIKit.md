@@ -1,4 +1,4 @@
-## 1. Khởi tạo UIViewController
+### 1. Khởi tạo UIViewController
 > Bước 1: Khởi tạo ÚIStoryboard
 > Bước 2: Khởi tạo View
 #### Push VỉewController
@@ -35,7 +35,7 @@ extension TodoViewController {
 }
 ```
 
-## 2. Khởi tạo BaseViewController
+### 2. Khởi tạo BaseViewController
 > Một baseViewController chứa NavigationBar, NavigationItem và một số thành phần để xử lí VỉewController
  * BaseViewController được viết bằng code nhưng các VC tạo bằng Xib khác vẫn có thể kế thừa 
  
@@ -62,7 +62,7 @@ func navigationBarWithHome(title: String, prefersLargeTitles: Bool = false) {
         self.navigationItem.leftBarButtonItem = home
     }
 ```
-## 3. Count down Timer
+### 3. Count down Timer
 ```swift
 class ViewController: UIViewController {
 
@@ -109,7 +109,7 @@ class ViewController: UIViewController {
 
 }
 ```
-## 4. Extension String
+### 4. Extension String
 ```swift
    extension String {
        var html2AttStr: NSAttributedString? {
@@ -123,4 +123,7 @@ class ViewController: UIViewController {
    label.attributedText = attributeText
 ```
 ### 5. Xây dựng một component trong Swift 4
+- Có lẽ bây giờ là thời kì của front-end theo hướng component, tất cả các front-end framework tốt nhất bây giờ như ReactJs, React Native, Angular, VueJS đều có khái niệm component như là nền tảng cơ bản để xây dựng lên một dự án. Tôi cũng tiếp cận IOS theo hướng như vậy nhưng mọi chuyện lại không như mình tưởng :(
+- Trong lập trình IOS component không phải là một khái niệm quen thuộc, ở đây người ta dùng kéo thả (cũng có khi dùng code nhưng không nhiều) để thực hiện một vùng hiển thị nên việc vẽ view rất nhanh và nếu có sự lặp đi lặp lại của một vùng hiển thị thì đã có TableView và reuse Cell thành thánh, đâu đâu cùng cell dù cho việc handle logic cho Cell thì không hề đơn giản (dùng delegate cho cell để handle logic trong cell, cũng có khi dùng callback (Javascript nhà em) - Trong IOS gọi thằng naỳ là Closure)
 ![](./ComponentUI.png?raw=true)
+- Sau đây mình sẽ trình bày mộtví dụ để minh hoạ cho so sánh phía trên sẽ dễ hiểu hơn
