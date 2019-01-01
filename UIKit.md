@@ -122,3 +122,5 @@ class ViewController: UIViewController {
    let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
    label.attributedText = attributeText
 ```
+### 5. Xây dựng một component trong Swift 4
+![](./ComponentUI.png?raw=true)
