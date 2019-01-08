@@ -127,3 +127,158 @@ class ViewController: UIViewController {
 - Trong lập trình IOS component không phải là một khái niệm quen thuộc, ở đây người ta dùng kéo thả (cũng có khi dùng code nhưng không nhiều) để thực hiện một vùng hiển thị nên việc vẽ view rất nhanh và nếu có sự lặp đi lặp lại của một vùng hiển thị thì đã có TableView và reuse Cell thành thánh, đâu đâu cùng cell dù cho việc handle logic cho Cell thì không hề đơn giản (dùng delegate cho cell để handle logic trong cell, cũng có khi dùng callback (Javascript nhà em) - Trong IOS gọi thằng naỳ là Closure)
 ![](./ComponentUI.png?raw=true)
 - Sau đây mình sẽ trình bày mộtví dụ để minh hoạ cho so sánh phía trên sẽ dễ hiểu hơn
+
+### 6. Call API trong swift (Giai đoạn đau khổ nhẩt khi học swift)
+- Khác với JS, việc call API trong `Swift` yêu cầu phải nắm đươc 3 kĩ năng sau:
+ * 1. Phương thức get (đón response - đơn giản nhất)
+ Mặc dù là đơn giản nhất nhưng mà rất khác với JS là ta phải tạo một model để đón được dữ liệu từ API về. Response từ API là kiểu [String: Any], tiến hành parse dữ liệu từ data trong response -> Model
+ ```swift
+import Alamofire
+import SwiftJSON
+
+class ResponseData {
+    var id: String?
+    var value: Int?
+    
+    init(json: JSON) {
+        // Dữ liệu cuối cùng để lấy
+        self.id = json["id"].string
+        self.value = json["value"].int
+    }
+}
+
+func testGetAPI(completion: @escaping (_ error: Error?, _ value: [ResponseData]) -> ()) {
+    let url = "url here"
+    Alamofire.request(url,
+                      method: .put,
+                      encoding: JSONEncoding.default,
+                      headers: Constants.header)
+        .responseJSON{ response in
+            print("API RESPONSE:\n" + response.debugDescription)
+            switch response.result {
+            case .success(let val):
+                if (response.response?.statusCode)! < 400 {
+                    if let data = val as? [String: Any] {
+                        // Phụ thuộc vào kiểu tra về của response nhưng thông thuong sẽ có "data" và "message"
+                        let responseDatas = [ResponseData]()
+                        if let data = JSON(data)["data"].array {
+                            for item in data {
+                                responseDatas.append(item)
+                            }
+                        }
+                    }
+                } else {
+                    let error = NSError(domain: url, code: -1000, userInfo: [NSLocalizedDescriptionKey :  NSLocalizedString("Unknowed Error", value: "An unknown error has occurred", comment: "")])
+                    completion(error, nil)
+                }
+            case .failure(_):
+                let error = NSError(domain: url, code: -1000, userInfo: [NSLocalizedDescriptionKey :  NSLocalizedString("Unknowed Error", value: "Request time out", comment: "")])
+                completion(error, nil)
+            }
+    }
+}
+
+ ```
+ * 2. Phương thức post put ... truyền cả [String: Any] as body và nhận data
+ ```swift
+ import Alamofire
+import SwiftJSON
+
+class ResponseData {
+    var id: String?
+    var value: Int?
+    // Init đế parse Json
+    init(json: JSON) {
+        // Dữ liệu cuối cùng để lấy
+        self.id = json["id"].string
+        self.value = json["value"].int
+    }
+}
+
+class BodyData {
+    var userProfile: String?
+    var address: String?
+    
+    //Tao [String: Any] Phải phụ thuộc vào body và back-end quy định
+    func collectParams() -> [String: Any] {
+        return [
+            "data": [
+                "userProfile": userProfile,
+                "address": address
+            ]
+        ]
+    }
+}
+
+func inputIncomeAPI(param: [String: Any], completion: @escaping (_ error: Error?, _ value: [ResponseData]) -> ()) {
+    let url = "url here"
+    Alamofire.request(url,
+                      method: .put,
+                      encoding: JSONEncoding.default,
+                      // Param này chính là cái truyền vào từ class BodyData
+                      parameters: param,
+                      headers: Constants.header)
+        .responseJSON{ response in
+            print("API RESPONSE:\n" + response.debugDescription)
+            switch response.result {
+            case .success(let val):
+                if (response.response?.statusCode)! < 400 {
+                    if let data = val as? [String: Any] {
+                        // Phụ thuộc vào kiểu tra về của response nhưng thông thuong sẽ có "data" và "message"
+                        let responseDatas = [ResponseData]()
+                        if let data = JSON(data)["data"].array {
+                            for item in data {
+                                responseDatas.append(item)
+                            }
+                        }
+                    }
+                } else {
+                    let error = NSError(domain: url, code: -1000, userInfo: [NSLocalizedDescriptionKey :  NSLocalizedString("Unknowed Error", value: "An unknown error has occurred", comment: "")])
+                    completion(error, nil)
+                }
+            case .failure(_):
+                let error = NSError(domain: url, code: -1000, userInfo: [NSLocalizedDescriptionKey :  NSLocalizedString("Unknowed Error", value: "Request time out", comment: "")])
+                completion(error, nil)
+            }
+    }
+}
+ ```
+ * 3. Phương thức post put ... nhưng sẽ tạo body data ở ngay trong func call API
+ ```swift
+ func inputIncomeAPI(id: String?, completion: @escaping (_ error: Error?, _ value: [ResponseData]) -> ()) {
+    let url = "url here"
+    let param: [String: Any] = [:]
+    if let id = id {
+        param["id"] = id
+    }
+    Alamofire.request(url,
+                      method: .put,
+                      encoding: JSONEncoding.default,
+                      // Data này chính là cái truyền vào ơ class BodyData
+                      parameters: param,
+                      headers: Constants.header)
+        .responseJSON{ response in
+            print("API RESPONSE:\n" + response.debugDescription)
+            switch response.result {
+            case .success(let val):
+                if (response.response?.statusCode)! < 400 {
+                    if let data = val as? [String: Any] {
+                        // Phụ thuộc vào kiểu tra về của response nhưng thông thuong sẽ có "data" và "message"
+                        let responseDatas = [ResponseData]()
+                        if let data = JSON(data)["data"].array {
+                            for item in data {
+                                responseDatas.append(item)
+                            }
+                        }
+                    }
+                } else {
+                    let error = NSError(domain: url, code: -1000, userInfo: [NSLocalizedDescriptionKey :  NSLocalizedString("Unknowed Error", value: "An unknown error has occurred", comment: "")])
+                    completion(error, nil)
+                }
+            case .failure(_):
+                let error = NSError(domain: url, code: -1000, userInfo: [NSLocalizedDescriptionKey :  NSLocalizedString("Unknowed Error", value: "Request time out", comment: "")])
+                completion(error, nil)
+            }
+    }
+}
+ ```
