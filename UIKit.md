@@ -314,3 +314,25 @@ extension UIViewReusable {
 }
 ```
 
+#### b.UIView: 
+* UIView thành môt thành phần của UIViewController (Nơi xử lí thông tin, chưa logic của cả một màn hình), reusable UIView là nhưng conponent chịu trách nhiệm hiển thị một vùng view
+##### Reusable UIView without Nib:
+* Có 2 cách để khởi tạo được UIView không tạo từ Nib 
+*** 1. Tạo ra một View trong Builder + Contraint -> gán trực tiếp class của UIView bằng class `Reusable UIView` (Done Thường dùng)
+*** 2. Tạo ra 1 UIView trong code + Contraint -> Sau đó addSubview(Reusable UIView) (Done)
+
+##### Reusable UIView with Nib
+* Cũng có 2 cách để tạo UIView từ nib: 
+*** 1. Tạo một UIView trong Builder + contraint -> Gán trực tiếp class của UIView bằng class `Reusable UIView` Sau đó cần phải khởi tạo Reusable UIView từ Nib 
+```swift
+extension UIView {
+    class func fromNib<T: UIView>() -> T {
+        return Bundle.main.loadNibNamed(String(describing: T.self), owner: nil, options: nil)![0] as! T
+    }
+    
+}
+```
+*** 2. Như trên nhưng ít 
+
+
+
