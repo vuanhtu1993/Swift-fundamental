@@ -288,9 +288,29 @@ func inputIncomeAPI(param: [String: Any], completion: @escaping (_ error: Error?
 #### a. UIViewControllers
 * Cách trường hợp sử dụng: khi ta muốn show pop-up (phương thức present) hoặc là muốn navigate sang một UIViewController khác (dùng phương thức push)
 ##### Reuseable UIViewController without Nib:
-* Sử dụng rất đơn giản như sau: Vẽ bằng code -> Khởi tạo -> present hoặc push
+* Sử dụng rất đơn giản như sau: Vẽ bằng code -> Khởi tạo bằng init -> present hoặc push
 VD
 ```swift 
 
+```
+##### Reuseable UIViewController with Nib:
+* Sử dụng như sau: Vẽ bằng code -> Khởi tạo bằng nib -> present hoặc push
+VD
+```swift 
+class UIViewReusable: UIViewController {
+
+}
+
+extension UIViewReusable {
+    
+    static var mainstoryboard: UIStoryboard {
+        return UIStoryboard(name: "Main", bundle: nil)
+    }
+    static func createViewController() -> UIViewReusable {
+        let view = mainstoryboard.instantiateViewController(withIdentifier: "TodoViewController") as! UIViewReusable
+        
+        return view
+    }
+}
 ```
 
