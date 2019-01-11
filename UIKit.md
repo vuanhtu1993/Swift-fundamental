@@ -282,3 +282,15 @@ func inputIncomeAPI(param: [String: Any], completion: @escaping (_ error: Error?
     }
 }
  ```
+### 7. Reuseable UIViews and UIViewControllers
+
++ Cách đơn giản nhất để sử dụng UIView hoặc UIViewController là ném nó vào Builder Interface, nhưng mà để để có thể tái sử dụng được những thành phần này ta cần phải viết ra một file riêng rẽ và gọi ở một UIViewController khác!
+#### a. UIViewControllers
+* Cách trường hợp sử dụng: khi ta muốn show pop-up (phương thức present) hoặc là muốn navigate sang một UIViewController khác (dùng phương thức push)
+##### Reuseable UIViewController without Nib:
+* Sử dụng rất đơn giản như sau: Vẽ bằng code -> Khởi tạo -> present hoặc push
+VD
+```swift 
+
+```
+
